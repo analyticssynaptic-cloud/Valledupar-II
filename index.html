@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FESTIVAL VALLENATO | INFORME ESTRATÉGICO VALLEDUPAR 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600;700&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --red:      #C62828;
+            --red-b:    #EF5350;
+            --red-d:    #7B0000;
+            --vino:     #4A0E0E;
+            --blush:    #FFEBEE;
+            --pink:     #FFCDD2;
+            --white:    #FFFFFF;
+            --off:      #FAFAFA;
+            --bg:       #F6F0EF;
+            --dark:     #1A0A0A;
+            --body:     #3D2424;
+            --muted:    #8C6060;
+            --border:   rgba(198,40,40,0.12);
+            --meico:    #1A3A8F;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--dark); overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+
+        /* ═══ NAV ═══ */
+        nav {
+            position: sticky; top: 0; z-index: 9000;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(16px);
+            border-bottom: 3px solid var(--red);
+            padding: 0 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            height: 72px;
+            box-shadow: 0 4px 30px rgba(198,40,40,0.1);
+        }
+        .nav-logos {
+            display: flex; align-items: center; gap: 12px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 6px 16px;
+            border: 1.5px solid rgba(198,40,40,0.1);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-divider { width: 1px; height: 32px; background: var(--border); }
+        .nav-campaign { display: flex; flex-direction: column; }
+        .nav-camp-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.95rem; font-weight: 800;
+            color: var(--red); letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .nav-camp-sub {
+            font-size: 0.62rem; color: var(--muted);
+            letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+        }
+        .nav-pills { display: flex; gap: 6px; }
+        .pill {
+            background: none; border: 1.5px solid #DDD;
+            padding: 7px 16px; border-radius: 30px;
+            cursor: pointer; font-weight: 700; font-size: 0.7rem;
+            letter-spacing: 1px; text-transform: uppercase;
+            transition: all 0.25s; color: var(--body); font-family: 'Barlow', sans-serif;
+            text-decoration: none; display: inline-flex; align-items: center;
+        }
+        .pill.active, .pill:hover {
+            background: var(--red); color: white; border-color: var(--red);
+            box-shadow: 0 4px 15px rgba(198,40,40,0.3);
+        }
+
+        /* ═══ HERO ═══ */
+        .hero {
+            min-height: 94vh;
+            display: flex; flex-direction: row;
+            align-items: stretch;
+            padding: 0;
+            background: linear-gradient(160deg, var(--vino) 0%, var(--red-d) 40%, var(--red) 78%, var(--red-b) 100%);
+            position: relative; overflow: hidden;
+        }
+        .hero-logos-panel {
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            background: #fff;
+            width: 38%; min-width: 320px;
+            padding: 40px 36px;
+            box-shadow: 6px 0 48px rgba(0,0,0,0.22);
+            gap: 0;
+        }
+        .hero-logos-panel .hl-sep {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2rem; font-weight: 900;
+            color: var(--red); opacity: 0.28; line-height: 1;
+            margin: 20px 0; text-align: center;
+        }
+        .hero-logos-panel .hl-divider {
+            width: 60px; height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(198,40,40,0.25), transparent);
+            margin: 8px auto;
+        }
+        .hero-logos-panel .hl-tag {
+            margin-top: 28px;
+            background: var(--blush);
+            border: 1.5px solid var(--pink);
+            border-radius: 12px;
+            padding: 14px 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .hero-logos-panel .hl-tag-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem; font-weight: 900;
+            color: var(--red); letter-spacing: 2px; text-transform: uppercase;
+        }
+        .hero-logos-panel .hl-tag-sub {
+            font-size: 0.72rem; color: var(--muted); font-weight: 600;
+            letter-spacing: 1px; text-transform: uppercase; margin-top: 4px;
+        }
+        .hero-content {
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column;
+            align-items: flex-start; justify-content: center;
+            flex: 1; padding: 80px 6% 120px;
+            overflow: hidden;
+        }
+        .hero-content::before {
+            content: '';
+            position: absolute; inset: 0; z-index: 0;
+            background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+        }
+        .hero-content > * { position: relative; z-index: 1; }
+        .hero-dot-pattern {
+            position: absolute; inset: 0; opacity: 0.04;
+            background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.28);
+            padding: 8px 22px; border-radius: 50px;
+            color: white; font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 3px; text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+        .hero h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(3rem, 8vw, 7.5rem);
+            font-weight: 900; color: white;
+            text-transform: uppercase; line-height: 0.9;
+            letter-spacing: -2px; margin-bottom: 8px;
+        }
+        .hero h1 em { font-style: normal; color: rgba(255,210,210,0.85); }
+        .hero-sub {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.9rem); font-weight: 600;
+            color: rgba(255,255,255,0.7); text-transform: uppercase;
+            letter-spacing: 8px; margin-bottom: 32px;
+        }
+        .hero-desc {
+            max-width: 600px; font-size: 1.05rem;
+            color: rgba(255,255,255,0.8); line-height: 1.8;
+            font-weight: 300; margin-bottom: 50px;
+        }
+        .hero-kpis {
+            display: flex; gap: 16px; flex-wrap: wrap;
+        }
+        .hero-kpi {
+            background: rgba(255,255,255,0.11);
+            border: 1px solid rgba(255,255,255,0.22);
+            backdrop-filter: blur(8px);
+            padding: 20px 28px; border-radius: 18px; color: white; text-align: center;
+            min-width: 110px;
+        }
+        .hero-kpi-val {
+            display: block;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 3.2rem; font-weight: 900; line-height: 1;
+        }
+        .hero-kpi-lab {
+            font-size: 0.6rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.68; margin-top: 5px;
+        }
+        .hero-scroll {
+            position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+            color: rgba(255,255,255,0.45); font-size: 0.65rem;
+            letter-spacing: 3px; text-transform: uppercase;
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            animation: bounce 2.2s infinite;
+        }
+        @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+        /* ═══ LAYOUTS ═══ */
+        .wrap { max-width: 1340px; margin: 0 auto; padding: 0 24px; }
+        .sec-head { text-align: center; padding: 70px 0 44px; }
+        .eyebrow {
+            display: inline-block; font-size: 0.68rem; font-weight: 800;
+            letter-spacing: 5px; text-transform: uppercase;
+            color: var(--red); margin-bottom: 12px;
+        }
+        .sec-h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(2rem, 4.5vw, 3.8rem); font-weight: 900;
+            color: var(--vino); letter-spacing: -1px; line-height: 1; margin-bottom: 14px;
+        }
+        .sec-lead {
+            max-width: 680px; margin: 0 auto;
+            font-size: 1rem; color: var(--muted); line-height: 1.7;
+        }
+
+        /* ═══ EXEC SUMMARY ═══ */
+        .exec-section { background: white; padding: 0 0 80px; }
+        .exec-card {
+            display: grid; grid-template-columns: 1.15fr 1fr;
+            gap: 48px; align-items: start;
+            background: var(--off); border-radius: 28px;
+            padding: 52px 56px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 60px rgba(198,40,40,0.07);
+        }
+        .exec-text h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2.1rem; font-weight: 900;
+            color: var(--vino); margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        .exec-text p {
+            font-size: 0.95rem; color: var(--body); line-height: 1.8; margin-bottom: 16px;
+        }
+        .exec-highlight {
+            background: linear-gradient(135deg, var(--vino), var(--red));
+            color: white; border-radius: 16px; padding: 22px 28px;
+            margin-top: 24px;
+        }
+        .exec-highlight p { color: rgba(255,255,255,0.88); font-size: 0.9rem; margin: 0; }
+        .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .kpi-box {
+            background: white; border-radius: 18px; padding: 22px 20px;
+            border: 1.5px solid var(--border);
+            box-shadow: 0 4px 20px rgba(198,40,40,0.06);
+            text-align: center;
+        }
+        .kpi-box-val {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2.8rem; font-weight: 900; color: var(--red); line-height: 1;
+        }
+        .kpi-box-lab {
+            font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--muted); margin-top: 6px;
+        }
+        .kpi-box-sub {
+            font-size: 0.78rem; color: var(--body); margin-top: 4px;
+        }
+
+        /* ═══ PDV SECTION ═══ */
+        .pdv-section { background: var(--bg); padding: 0 0 80px; }
+        .pdv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+        .pdv-card {
+            background: white; border-radius: 22px; overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 6px 30px rgba(198,40,40,0.07);
+            transition: transform 0.3s;
+        }
+        .pdv-card:hover { transform: translateY(-5px); }
+        .pdv-card-head {
+            background: linear-gradient(135deg, var(--vino), var(--red));
+            padding: 22px 26px; color: white;
+            display: flex; align-items: center; gap: 14px;
+        }
+        .pdv-icon {
+            width: 42px; height: 42px; border-radius: 11px;
+            background: rgba(255,255,255,0.18);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+        }
+        .pdv-card-head h4 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.3rem; font-weight: 800;
+        }
+        .pdv-card-head span {
+            font-size: 0.65rem; opacity: 0.75; letter-spacing: 1px; text-transform: uppercase;
+        }
+        .pdv-body { padding: 26px; }
+        .mini-kpis { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 26px; }
+        .mini-kpi {
+            text-align: center; background: var(--blush); border-radius: 12px; padding: 14px 8px;
+        }
+        .mini-kpi-val {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.8rem; font-weight: 900; color: var(--red); line-height: 1;
+        }
+        .mini-kpi-lab {
+            font-size: 0.56rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--muted); margin-top: 4px;
+        }
+        .obs-row {
+            display: flex; gap: 12px; align-items: flex-start;
+            background: var(--bg); border-radius: 12px; padding: 14px 16px;
+            font-size: 0.85rem; color: var(--body); line-height: 1.6;
+        }
+        .obs-row i { color: var(--red); margin-top: 3px; flex-shrink: 0; }
+
+        /* ═══ CHARTS ═══ */
+        .ventas-section { background: white; padding: 0 0 80px; }
+        .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .chart-card {
+            background: var(--off); border-radius: 22px;
+            border: 1px solid var(--border);
+            box-shadow: 0 6px 30px rgba(198,40,40,0.06);
+            padding: 32px 28px;
+        }
+        .chart-card-full { grid-column: 1 / -1; }
+        .chart-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.25rem; font-weight: 800;
+            color: var(--vino); margin-bottom: 6px;
+        }
+        .chart-sub {
+            font-size: 0.78rem; color: var(--muted); margin-bottom: 24px;
+            font-weight: 600; letter-spacing: 0.5px;
+        }
+
+        /* ═══ GALERIA ═══ */
+        .gal-section { background:#111; padding:80px 0; }
+        .gal-inner { max-width:960px; margin:0 auto; padding:0 24px; }
+        .gal-drive-btn {
+            display:inline-flex; align-items:center; gap:9px;
+            background:var(--red); color:#fff;
+            padding:12px 26px; border-radius:8px; text-decoration:none;
+            font-weight:700; font-size:.85rem; letter-spacing:.04em;
+            transition:background .2s; box-shadow:0 4px 14px rgba(198,40,40,.35);
+        }
+        .gal-drive-btn:hover { background:var(--vino); }
+        .gal-section .eyebrow { color:rgba(255,255,255,.5); }
+        .gal-section .sec-h2 { color:#fff; }
+        .gal-section .sec-lead { color:rgba(255,255,255,.6); }
+        .gal-meta { font-size:.78rem; color:rgba(255,255,255,.4); font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin-top:10px; }
+        .gal-hero {
+            position:relative; width:100%; background:#000;
+            border-radius:16px; overflow:hidden;
+            aspect-ratio:4/3;
+            box-shadow:0 20px 60px rgba(0,0,0,.6);
+            margin:36px 0 16px;
+            cursor:zoom-in;
+        }
+        .gal-hero img { width:100%; height:100%; object-fit:cover; object-position:center center; display:block; transition:opacity .35s; }
+        .gal-hero-caption {
+            position:absolute; bottom:0; left:0; right:0;
+            background:linear-gradient(transparent,rgba(0,0,0,.75));
+            color:#fff; font-size:.85rem; font-weight:700;
+            padding:36px 24px 18px; letter-spacing:.05em;
+        }
+        .gal-hero-counter {
+            position:absolute; top:16px; right:16px;
+            background:rgba(0,0,0,.55); color:#fff;
+            font-size:.72rem; font-weight:800;
+            padding:4px 14px; border-radius:20px; letter-spacing:.06em;
+            backdrop-filter:blur(4px);
+        }
+        .gal-hero-nav {
+            position:absolute; top:50%; transform:translateY(-50%);
+            background:rgba(255,255,255,.15); border:none; color:#fff;
+            width:52px; height:52px; border-radius:50%;
+            font-size:1.8rem; cursor:pointer;
+            display:flex; align-items:center; justify-content:center;
+            transition:background .2s; backdrop-filter:blur(6px);
+        }
+        .gal-hero-nav:hover { background:var(--red); }
+        .gal-prev { left:16px; } .gal-next { right:16px; }
+        .gal-spinner {
+            position:absolute; top:50%; left:50%;
+            transform:translate(-50%,-50%);
+            width:48px; height:48px;
+            border:3px solid rgba(255,255,255,.1);
+            border-top-color:var(--red);
+            border-radius:50%; animation:galspin .8s linear infinite;
+            pointer-events:none;
+        }
+        @keyframes galspin { to { transform:translate(-50%,-50%) rotate(360deg); } }
+        .gal-strip {
+            display:flex; gap:8px;
+            overflow-x:auto; padding-bottom:6px;
+            scrollbar-width:none;
+        }
+        .gal-strip::-webkit-scrollbar { display:none; }
+        .gal-thumb {
+            flex:0 0 calc(16% - 8px);
+            aspect-ratio:1/1; border-radius:8px; overflow:hidden;
+            cursor:pointer; border:2px solid transparent;
+            background:#222; opacity:.6; transition:opacity .2s, border-color .2s, transform .2s;
+        }
+        .gal-thumb.active { border-color:var(--red); opacity:1; transform:scale(1.06); }
+        .gal-thumb:hover { opacity:1; border-color:rgba(198,40,40,.6); }
+        .gal-thumb img { width:100%; height:100%; object-fit:cover; object-position:center center; display:block; }
+        .galb { display:none; position:fixed; inset:0; background:rgba(0,0,0,.96); z-index:9999; align-items:center; justify-content:center; flex-direction:column; }
+        .galb.open { display:flex; }
+        .galb-img { max-width:90vw; max-height:85vh; border-radius:10px; object-fit:contain; box-shadow:0 8px 60px rgba(0,0,0,.7); transition:opacity .3s; }
+        .galb-close { position:fixed; top:18px; right:22px; background:rgba(255,255,255,.1); border:none; color:#fff; width:44px; height:44px; border-radius:50%; font-size:1.5rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s; z-index:10000; }
+        .galb-close:hover { background:var(--red); }
+        .galb-nav { position:fixed; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.1); border:none; color:#fff; width:54px; height:54px; border-radius:50%; font-size:1.7rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s; z-index:10000; }
+        .galb-nav:hover { background:var(--red); }
+        .galb-prev { left:14px; } .galb-next { right:14px; }
+        .galb-info { margin-top:16px; text-align:center; }
+        .galb-cap { color:rgba(255,255,255,.9); font-size:.9rem; font-weight:700; letter-spacing:.05em; }
+        .galb-cnt { color:rgba(255,255,255,.4); font-size:.78rem; margin-top:4px; }
+        .galb-link { margin-top:12px; display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.1); color:#fff; padding:8px 18px; border-radius:6px; text-decoration:none; font-size:.78rem; font-weight:700; transition:background .2s; }
+        .galb-link:hover { background:var(--red); }
+        @media(max-width:640px){ .gal-thumb { flex:0 0 calc(20% - 7px); } }
+
+        /* ═══ INSIGHTS ═══ */
+        .ins-section { background: var(--bg); padding: 0 0 80px; }
+        .ins-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+        .ins-card {
+            background: white; border-radius: 20px; padding: 32px 28px;
+            border: 1px solid var(--border);
+            box-shadow: 0 6px 30px rgba(198,40,40,0.06);
+            position: relative; overflow: hidden;
+        }
+        .ins-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 4px; background: linear-gradient(90deg, var(--vino), var(--red-b));
+        }
+        .ins-icon {
+            width: 46px; height: 46px; border-radius: 13px;
+            background: var(--blush); display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; color: var(--red); margin-bottom: 18px;
+        }
+        .ins-card h4 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.25rem; font-weight: 800; color: var(--vino);
+            margin-bottom: 12px; line-height: 1.2;
+        }
+        .ins-card p { font-size: 0.88rem; color: var(--body); line-height: 1.7; margin-bottom: 18px; }
+        .ins-pct {
+            display: block;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2.4rem; font-weight: 900; color: var(--red); line-height: 1;
+        }
+        .ins-pct-lab {
+            font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--muted); margin-top: 4px;
+        }
+
+        /* ═══ RECOMENDACIONES ═══ */
+        .reco-section { background: white; padding: 0 0 80px; }
+        .reco-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+        .reco-card {
+            background: var(--off); border-radius: 20px; padding: 32px 28px;
+            border: 1px solid var(--border);
+            box-shadow: 0 6px 30px rgba(198,40,40,0.05);
+        }
+        .reco-num {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 4rem; font-weight: 900; color: var(--pink);
+            line-height: 1; margin-bottom: 12px;
+        }
+        .reco-card h4 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.2rem; font-weight: 800; color: var(--vino);
+            margin-bottom: 12px; line-height: 1.2;
+        }
+        .reco-card p { font-size: 0.88rem; color: var(--body); line-height: 1.7; margin-bottom: 16px; }
+        .reco-tag {
+            display: inline-block; background: var(--blush); color: var(--red);
+            font-size: 0.62rem; font-weight: 800; letter-spacing: 2px;
+            text-transform: uppercase; padding: 4px 12px; border-radius: 20px;
+        }
+
+        /* === GALERIA ESPECIAL BEVGO/HOTEL === */
+        .gal2-section { background:#0d0d0d; padding:80px 0; }
+        .gal2-inner { max-width:960px; margin:0 auto; padding:0 24px; }
+        .gal2-section .eyebrow { color:rgba(255,255,255,.45); }
+        .gal2-section .sec-h2 { color:#fff; }
+        .gal2-section .sec-lead { color:rgba(255,255,255,.55); }
+        .gal2-badge { display:inline-flex; align-items:center; gap:7px; background:rgba(198,40,40,.15); border:1px solid rgba(198,40,40,.4); color:#EF5350; font-size:.72rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:16px; }
+        .gal2-meta { font-size:.78rem; color:rgba(255,255,255,.35); font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin-top:6px; }
+        .gal2-drive-btn { display:inline-flex; align-items:center; gap:9px; background:var(--red); color:#fff; padding:12px 26px; border-radius:8px; text-decoration:none; font-weight:700; font-size:.85rem; letter-spacing:.04em; transition:background .2s; box-shadow:0 4px 14px rgba(198,40,40,.35); }
+        .gal2-drive-btn:hover { background:var(--vino); }
+
+        /* Imagen/video hero */
+        .gal2-hero { position:relative; width:100%; background:#000; border-radius:16px; overflow:hidden; aspect-ratio:4/3; box-shadow:0 20px 60px rgba(0,0,0,.7); margin:32px 0 14px; cursor:zoom-in; }
+        .gal2-hero img { width:100%; height:100%; object-fit:cover; object-position:center center; display:block; transition:opacity .35s; }
+        .gal2-hero video { width:100%; height:100%; object-fit:cover; display:none; }
+        .gal2-hero-counter { position:absolute; top:16px; right:16px; background:rgba(0,0,0,.55); color:#fff; font-size:.72rem; font-weight:800; padding:4px 14px; border-radius:20px; letter-spacing:.06em; backdrop-filter:blur(4px); z-index:2; }
+        .gal2-hero-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,.75)); color:#fff; font-size:.85rem; font-weight:700; padding:36px 24px 18px; letter-spacing:.05em; z-index:2; }
+        .gal2-video-badge { position:absolute; top:16px; left:16px; background:var(--red); color:#fff; font-size:.68rem; font-weight:800; padding:3px 11px; border-radius:20px; letter-spacing:.07em; text-transform:uppercase; z-index:2; }
+        .gal2-play-btn { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:64px; height:64px; background:rgba(198,40,40,.85); border-radius:50%; display:none; align-items:center; justify-content:center; z-index:3; pointer-events:none; }
+        .gal2-play-btn svg { margin-left:4px; }
+        .gal2-hero-nav { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.15); border:none; color:#fff; width:52px; height:52px; border-radius:50%; font-size:1.8rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s; backdrop-filter:blur(6px); z-index:4; }
+        .gal2-hero-nav:hover { background:var(--red); }
+        .gal2-prev { left:16px; } .gal2-next { right:16px; }
+        .gal2-spinner { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:48px; height:48px; border:3px solid rgba(255,255,255,.1); border-top-color:var(--red); border-radius:50%; animation:gal2spin .8s linear infinite; pointer-events:none; z-index:2; }
+        @keyframes gal2spin { to { transform:translate(-50%,-50%) rotate(360deg); } }
+
+        /* tira miniaturas */
+        .gal2-strip { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+        .gal2-strip::-webkit-scrollbar { display:none; }
+        .gal2-thumb { flex:0 0 calc(16% - 8px); aspect-ratio:1/1; border-radius:8px; overflow:hidden; cursor:pointer; border:2px solid transparent; position:relative; background:#222; opacity:.55; transition:opacity .2s,border-color .2s,transform .2s; }
+        .gal2-thumb.active { border-color:var(--red); opacity:1; transform:scale(1.06); }
+        .gal2-thumb:hover { opacity:1; border-color:rgba(198,40,40,.5); }
+        .gal2-thumb img { width:100%; height:100%; object-fit:cover; object-position:center center; display:block; }
+        .gal2-thumb-vid { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.4); }
+        .gal2-thumb-vid svg { opacity:.9; }
+
+        /* Lightbox */
+        .gal2b { display:none; position:fixed; inset:0; background:rgba(0,0,0,.96); z-index:9999; align-items:center; justify-content:center; flex-direction:column; }
+        .gal2b.open { display:flex; }
+        .gal2b-media { max-width:90vw; max-height:85vh; border-radius:10px; object-fit:contain; box-shadow:0 8px 60px rgba(0,0,0,.7); }
+        .gal2b-close { position:fixed; top:18px; right:22px; background:rgba(255,255,255,.1); border:none; color:#fff; width:44px; height:44px; border-radius:50%; font-size:1.5rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s; z-index:10000; }
+        .gal2b-close:hover { background:var(--red); }
+        .gal2b-nav { position:fixed; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.1); border:none; color:#fff; width:54px; height:54px; border-radius:50%; font-size:1.7rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s; z-index:10000; }
+        .gal2b-nav:hover { background:var(--red); }
+        .gal2b-prev { left:14px; } .gal2b-next { right:14px; }
+        .gal2b-info { margin-top:16px; text-align:center; }
+        .gal2b-cap { color:rgba(255,255,255,.9); font-size:.9rem; font-weight:700; letter-spacing:.05em; }
+        .gal2b-cnt { color:rgba(255,255,255,.4); font-size:.78rem; margin-top:4px; }
+        .gal2b-link { margin-top:12px; display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.1); color:#fff; padding:8px 18px; border-radius:6px; text-decoration:none; font-size:.78rem; font-weight:700; transition:background .2s; }
+        .gal2b-link:hover { background:var(--red); }
+        @media(max-width:640px){ .gal2-thumb { flex:0 0 calc(20% - 7px); } }
+
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+    <div class="nav-logos"><span style="font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--vino);">Campaña Festival &middot; Valledupar 2026</span></div>
+    <div class="nav-right">
+        <div class="nav-campaign">
+            <span class="nav-camp-title">Festival Vallenato 2026</span>
+            <span class="nav-camp-sub">Valledupar · 29 Abr – 03 May</span>
+        </div>
+        <div class="nav-divider"></div>
+        <div class="nav-pills">
+            <a class="pill active" href="#resumen">Resumen</a>
+            <a class="pill" href="#pdv">PDV</a>
+            <a class="pill" href="#ventas">Ventas</a>
+            <a class="pill" href="#galeria">Galería</a>
+            <a class="pill" href="#insights">Insights</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+    <div class="hero-logos-panel">
+        <div style="text-align:center;margin-top:12px;">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:900;color:var(--red);letter-spacing:2px;line-height:1;">FESTIVAL</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:900;color:var(--vino);letter-spacing:2px;">+ BEVGO</div>
+            <div style="font-size:0.7rem;color:var(--muted);font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-top:6px;">Canales PDV · Valledupar</div>
+        </div>
+        <div class="hl-divider" style="margin-top:24px;"></div>
+        <div class="hl-tag" style="margin-top:20px;">
+            <div class="hl-tag-title">Festival Vallenato 2026</div>
+            <div class="hl-tag-sub">Valledupar · 29 Abr – 03 May</div>
+        </div>
+        <div class="hl-tag" style="margin-top:12px;background:var(--vino);border-color:rgba(255,255,255,0.1);">
+            <div class="hl-tag-title" style="color:white;">Campaña Festival</div>
+            <div class="hl-tag-sub" style="color:rgba(255,255,255,0.6);">5 días · 14 PDVs activos</div>
+        </div>
+        <div class="hl-tag" style="margin-top:12px;background:linear-gradient(135deg,#1565C0,#1976D2);border-color:rgba(255,255,255,0.1);">
+            <div class="hl-tag-title" style="color:white;">BEVGO Valledupar</div>
+            <div class="hl-tag-sub" style="color:rgba(255,255,255,0.6);">PDV anclado · 109 unidades</div>
+        </div>
+    </div>
+    <div class="hero-content">
+        <div class="hero-dot-pattern"></div>
+        <div class="hero-badge">
+            <i class="fas fa-map-marker-alt"></i>
+            Informe de Campo — Valledupar, Cesar
+        </div>
+        <h1><em>Festival</em><br>Vallenato</h1>
+        <p class="hero-sub">Campaña Festival + Bevgo · 2026</p>
+        <p class="hero-desc">
+            Reporte estratégico de la activación de la campaña Festival (PDV) y Bevgo en Valledupar durante el Festival Vallenato 2026. 5 días de operación, 14 puntos de venta cubiertos, con presencia activa en supermercados, licoreras, hoteles y canales especializados.
+        </p>
+        <div class="hero-kpis">
+            <div class="hero-kpi">
+                <span class="hero-kpi-val">277</span>
+                <div class="hero-kpi-lab">Unidades<br>vendidas</div>
+            </div>
+            <div class="hero-kpi">
+                <span class="hero-kpi-val">$19.7M</span>
+                <div class="hero-kpi-lab">Venta total<br>COP</div>
+            </div>
+            <div class="hero-kpi">
+                <span class="hero-kpi-val">258</span>
+                <div class="hero-kpi-lab">Premios<br>entregados</div>
+            </div>
+            <div class="hero-kpi">
+                <span class="hero-kpi-val">14</span>
+                <div class="hero-kpi-lab">PDVs<br>cubiertos</div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Desliza</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ RESUMEN EJECUTIVO ═══ -->
+<section class="exec-section" id="resumen">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="eyebrow">Resumen Ejecutivo</span>
+            <h2 class="sec-h2">Resultados Generales<br>Campaña Festival + Bevgo</h2>
+            <p class="sec-lead">Consolidado de 5 días de activación (29 Abr – 03 May 2026) en los canales Festival (PDV) y Bevgo de Valledupar durante el Festival Vallenato.</p>
+        </div>
+        <div class="exec-card">
+            <div class="exec-text">
+                <h3>Bevgo Lidera en Volumen; Economía 9006 Domina en Valor</h3>
+                <p>La campaña Festival + Bevgo registró <strong>277 unidades vendidas</strong> con un valor total de <strong>$19.7 millones de pesos</strong> en cinco jornadas. El día 29 de abril fue el más productivo con 70 unidades y $7.2M en ventas, impulsado por la alta demanda de apertura del festival.</p>
+                <p>El <strong>canal Bevgo Valledupar</strong> lideró en volumen con 109 unidades vendidas ($4.8M), mientras que <strong>Economía 9006-Novena</strong> fue el PDV más valioso con $6.4M en ventas. El portafolio de productos Festival (aguardiente, vinos Moelia y Lambrusco) tuvo fuerte acogida, especialmente el Vino Moelia Rosado en eventos y hoteles.</p>
+                <p>Se entregaron <strong>258 premios</strong> distribuidos entre Copas shot Costeño (83 uds), Descorchadores (80 uds) y Gorras Costeño (47 uds), siendo Bevgo Valledupar el PDV con más incentivos entregados (138 unidades).</p>
+                <div class="exec-highlight">
+                    <p><strong>Observación de campo:</strong> Competencia activa en Olímpica Sierra Nevada regalando boletas a compradores. En Éxito Las Flores se reportó falta de stock de Moelia Rosé el 01 mayo. El Hotel Tativan mostró excelente receptividad del vino Moelia Rosé desde el primer día.</p>
+                </div>
+            </div>
+            <div>
+                <div class="kpi-grid">
+                    <div class="kpi-box">
+                        <div class="kpi-box-val">277</div>
+                        <div class="kpi-box-lab">Unidades vendidas</div>
+                        <div class="kpi-box-sub">5 días · 14 PDVs</div>
+                    </div>
+                    <div class="kpi-box">
+                        <div class="kpi-box-val">$19.7M</div>
+                        <div class="kpi-box-lab">Venta total COP</div>
+                        <div class="kpi-box-sub">Promedio $71K/ud</div>
+                    </div>
+                    <div class="kpi-box">
+                        <div class="kpi-box-val">258</div>
+                        <div class="kpi-box-lab">Premios entregados</div>
+                        <div class="kpi-box-sub">11 tipos de incentivo</div>
+                    </div>
+                    <div class="kpi-box">
+                        <div class="kpi-box-val">109</div>
+                        <div class="kpi-box-lab">Bevgo — top volumen</div>
+                        <div class="kpi-box-sub">$4.8M generados</div>
+                    </div>
+                    <div class="kpi-box">
+                        <div class="kpi-box-val">$6.4M</div>
+                        <div class="kpi-box-lab">Econ. 9006 — top valor</div>
+                        <div class="kpi-box-sub">37 unidades</div>
+                    </div>
+                    <div class="kpi-box">
+                        <div class="kpi-box-val">73</div>
+                        <div class="kpi-box-lab">Encuestas voz consumidor</div>
+                        <div class="kpi-box-sub">Festival + Bevgo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ PDV SECTION ═══ -->
+<section class="pdv-section" id="pdv">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="eyebrow">Puntos de Venta</span>
+            <h2 class="sec-h2">Desempeño por PDV</h2>
+            <p class="sec-lead">Resultados individuales de los 14 puntos de venta de la campaña Festival (PDV) y Bevgo activados durante el Festival Vallenato 2026.</p>
+        </div>
+        <div class="pdv-grid">
+
+            <div class="pdv-card">
+                <div class="pdv-card-head">
+                    <div class="pdv-icon"><i class="fas fa-store"></i></div>
+                    <div>
+                        <h4>BEVGO VALLEDUPAR</h4>
+                        <span>Promotoras: Laura Duarte Rugeles / Yeidy Velásquez · Top Volumen</span>
+                    </div>
+                </div>
+                <div class="pdv-body">
+                    <div class="mini-kpis">
+                        <div class="mini-kpi"><div class="mini-kpi-val">109</div><div class="mini-kpi-lab">Unidades</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">$4.8M</div><div class="mini-kpi-lab">Venta</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">138</div><div class="mini-kpi-lab">Premios</div></div>
+                    </div>
+                    <div class="obs-row"><i class="fas fa-circle"></i><span>PDV ancla de la campaña — mayor volumen de ventas y la mayor entrega de premios de toda la activación. Copas shot Costeño y descorchadores fueron los incentivos de mayor rotación. Operó los 5 días con doble promotora.</span></div>
+                </div>
+            </div>
+
+            <div class="pdv-card">
+                <div class="pdv-card-head">
+                    <div class="pdv-icon"><i class="fas fa-store"></i></div>
+                    <div>
+                        <h4>ECONOMÍA 9006-NOVENA</h4>
+                        <span>Promotora: Ana Marcela Álvarez Ramírez · Top Valor</span>
+                    </div>
+                </div>
+                <div class="pdv-body">
+                    <div class="mini-kpis">
+                        <div class="mini-kpi"><div class="mini-kpi-val">37</div><div class="mini-kpi-lab">Unidades</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">$6.4M</div><div class="mini-kpi-lab">Venta</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">16</div><div class="mini-kpi-lab">Premios</div></div>
+                    </div>
+                    <div class="obs-row"><i class="fas fa-circle"></i><span>Mayor valor de ventas del canal con ticket promedio más alto ($172K/unidad). Fuerte demanda de whisky Buchanans Master y Old Parr. PDV con altísima productividad relativa — 37 unidades en 4 jornadas.</span></div>
+                </div>
+            </div>
+
+            <div class="pdv-card">
+                <div class="pdv-card-head">
+                    <div class="pdv-icon"><i class="fas fa-store"></i></div>
+                    <div>
+                        <h4>ECONOMÍA 10132-CAÑAHUATE</h4>
+                        <span>Promotora: Camila Andrea Ojeda Jacone</span>
+                    </div>
+                </div>
+                <div class="pdv-body">
+                    <div class="mini-kpis">
+                        <div class="mini-kpi"><div class="mini-kpi-val">21</div><div class="mini-kpi-lab">Unidades</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">$3.3M</div><div class="mini-kpi-lab">Venta</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">17</div><div class="mini-kpi-lab">Premios</div></div>
+                    </div>
+                    <div class="obs-row"><i class="fas fa-circle"></i><span>Sólido desempeño en 4 de los 5 días de campaña. Buchanans Master 750 ml fue el producto estrella. Buena entrega de premios con termos y tulas como incentivos destacados.</span></div>
+                </div>
+            </div>
+
+            <div class="pdv-card">
+                <div class="pdv-card-head">
+                    <div class="pdv-icon"><i class="fas fa-store"></i></div>
+                    <div>
+                        <h4>OLÍMPICA SIERRA NEVADA</h4>
+                        <span>Promotora: Carolina Michell Martínez Valencia</span>
+                    </div>
+                </div>
+                <div class="pdv-body">
+                    <div class="mini-kpis">
+                        <div class="mini-kpi"><div class="mini-kpi-val">20</div><div class="mini-kpi-lab">Unidades</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">$1.1M</div><div class="mini-kpi-lab">Venta</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">14</div><div class="mini-kpi-lab">Premios</div></div>
+                    </div>
+                    <div class="obs-row"><i class="fas fa-exclamation-circle" style="color:#E65100;"></i><span>Competencia entregando 3–4 boletas al festival por compra. Presencia fuerte de competidores dificulta conversión. Descorchadores como incentivo principal. Requiere propuesta diferenciadora.</span></div>
+                </div>
+            </div>
+
+            <div class="pdv-card">
+                <div class="pdv-card-head">
+                    <div class="pdv-icon"><i class="fas fa-store"></i></div>
+                    <div>
+                        <h4>MAKRO VALLEDUPAR</h4>
+                        <span>Promotora: Camila Andrea Araujo Rodríguez</span>
+                    </div>
+                </div>
+                <div class="pdv-body">
+                    <div class="mini-kpis">
+                        <div class="mini-kpi"><div class="mini-kpi-val">19</div><div class="mini-kpi-lab">Unidades</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">$554K</div><div class="mini-kpi-lab">Venta</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">13</div><div class="mini-kpi-lab">Premios</div></div>
+                    </div>
+                    <div class="obs-row"><i class="fas fa-circle"></i><span>Activó desde el día 2 (30 abril). Concentró ventas en 30 abril y 02 mayo con buen ritmo. Descorchadores, copas shot y gorras como incentivos. Potencial alto por volumen de tráfico del almacén.</span></div>
+                </div>
+            </div>
+
+            <div class="pdv-card">
+                <div class="pdv-card-head">
+                    <div class="pdv-icon"><i class="fas fa-store"></i></div>
+                    <div>
+                        <h4>ÉXITO LAS FLORES</h4>
+                        <span>Promotora: María Lucía Cataño Mejía</span>
+                    </div>
+                </div>
+                <div class="pdv-body">
+                    <div class="mini-kpis">
+                        <div class="mini-kpi"><div class="mini-kpi-val">14</div><div class="mini-kpi-lab">Unidades</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">$511K</div><div class="mini-kpi-lab">Venta</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">13</div><div class="mini-kpi-lab">Premios</div></div>
+                    </div>
+                    <div class="obs-row"><i class="fas fa-exclamation-circle" style="color:#E65100;"></i><span>Quiebre de Moelia Rosé el 01 mayo. Vino Moelia y Lambrusco como productos principales. El aguardiente Costeño no tuvo buena rotación según reporte de campo. Descorchadores el premio más entregado.</span></div>
+                </div>
+            </div>
+
+            <div class="pdv-card">
+                <div class="pdv-card-head">
+                    <div class="pdv-icon"><i class="fas fa-store"></i></div>
+                    <div>
+                        <h4>OLÍMPICA CORTIJOS</h4>
+                        <span>Promotora: Camila Andrea Araujo Rodríguez</span>
+                    </div>
+                </div>
+                <div class="pdv-body">
+                    <div class="mini-kpis">
+                        <div class="mini-kpi"><div class="mini-kpi-val">14</div><div class="mini-kpi-lab">Unidades</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">$569K</div><div class="mini-kpi-lab">Venta</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">10</div><div class="mini-kpi-lab">Premios</div></div>
+                    </div>
+                    <div class="obs-row"><i class="fas fa-circle"></i><span>Activación en un solo día (01 mayo) con excelente resultado — 14 unidades en una jornada. Olímpica Cortijos demostró alta densidad de ventas. Oportunidad clara de ampliar cobertura en próximas ediciones.</span></div>
+                </div>
+            </div>
+
+            <div class="pdv-card">
+                <div class="pdv-card-head">
+                    <div class="pdv-icon"><i class="fas fa-store"></i></div>
+                    <div>
+                        <h4>ÉXITO CENTRO</h4>
+                        <span>Promotora: Camila Andrea Araujo Rodríguez</span>
+                    </div>
+                </div>
+                <div class="pdv-body">
+                    <div class="mini-kpis">
+                        <div class="mini-kpi"><div class="mini-kpi-val">13</div><div class="mini-kpi-lab">Unidades</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">$524K</div><div class="mini-kpi-lab">Venta</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">16</div><div class="mini-kpi-lab">Premios</div></div>
+                    </div>
+                    <div class="obs-row"><i class="fas fa-circle"></i><span>Canal Bevgo con fuerte movimiento de aguardiente Costeño Azul (375ml y 750ml). Alta entrega de premios (copas y gorras). Operó 29 abril y 03 mayo con buenos resultados en ambas jornadas.</span></div>
+                </div>
+            </div>
+
+            <div class="pdv-card">
+                <div class="pdv-card-head">
+                    <div class="pdv-icon"><i class="fas fa-store"></i></div>
+                    <div>
+                        <h4>SAO 251</h4>
+                        <span>Promotora: Valeria Torres Beltrán</span>
+                    </div>
+                </div>
+                <div class="pdv-body">
+                    <div class="mini-kpis">
+                        <div class="mini-kpi"><div class="mini-kpi-val">13</div><div class="mini-kpi-lab">Unidades</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">$611K</div><div class="mini-kpi-lab">Venta</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">10</div><div class="mini-kpi-lab">Premios</div></div>
+                    </div>
+                    <div class="obs-row"><i class="fas fa-circle"></i><span>Operó 4 de 5 días con resultados constantes. Vino Moelia Rosado fue el producto estrella. Reportó punto "muy solo" el 03 mayo pero mantuvo ventas activas. Buena distribución de premios.</span></div>
+                </div>
+            </div>
+
+            <div class="pdv-card">
+                <div class="pdv-card-head">
+                    <div class="pdv-icon"><i class="fas fa-hotel"></i></div>
+                    <div>
+                        <h4>HOTEL TATIVAN</h4>
+                        <span>Promotora: Yeidy Geraldine Velásquez Henao</span>
+                    </div>
+                </div>
+                <div class="pdv-body">
+                    <div class="mini-kpis">
+                        <div class="mini-kpi"><div class="mini-kpi-val">8</div><div class="mini-kpi-lab">Unidades</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">$910K</div><div class="mini-kpi-lab">Venta</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">2</div><div class="mini-kpi-lab">Premios</div></div>
+                    </div>
+                    <div class="obs-row"><i class="fas fa-circle"></i><span>Menor volumen pero mayor ticket promedio del canal ($113K/unidad). Moelia Rosado fue el producto estrella — "gustó mucho" según promotora. Contexto de hotel genera ventas de mayor valor unitario.</span></div>
+                </div>
+            </div>
+
+            <div class="pdv-card">
+                <div class="pdv-card-head">
+                    <div class="pdv-icon"><i class="fas fa-store"></i></div>
+                    <div>
+                        <h4>OLÍMPICA UNICENTRO</h4>
+                        <span>Promotora: María Gabriela Rugeles Duarte</span>
+                    </div>
+                </div>
+                <div class="pdv-body">
+                    <div class="mini-kpis">
+                        <div class="mini-kpi"><div class="mini-kpi-val">5</div><div class="mini-kpi-lab">Unidades</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">$301K</div><div class="mini-kpi-lab">Venta</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">6</div><div class="mini-kpi-lab">Premios</div></div>
+                    </div>
+                    <div class="obs-row"><i class="fas fa-circle"></i><span>Operó 4 de 5 días. Ventas moderadas pero con presencia activa. También rotó en Mi Futuro Novalito el 01 mayo como PDV adicional. Descorchadores como principal incentivo.</span></div>
+                </div>
+            </div>
+
+            <div class="pdv-card">
+                <div class="pdv-card-head">
+                    <div class="pdv-icon"><i class="fas fa-store"></i></div>
+                    <div>
+                        <h4>SAO 260 / SAO 51 / BOTICA 88</h4>
+                        <span>PDVs complementarios de la campaña</span>
+                    </div>
+                </div>
+                <div class="pdv-body">
+                    <div class="mini-kpis">
+                        <div class="mini-kpi"><div class="mini-kpi-val">4</div><div class="mini-kpi-lab">Unidades</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">$214K</div><div class="mini-kpi-lab">Venta</div></div>
+                        <div class="mini-kpi"><div class="mini-kpi-val">5</div><div class="mini-kpi-lab">Premios</div></div>
+                    </div>
+                    <div class="obs-row"><i class="fas fa-info-circle" style="color:#1565C0;"></i><span>SAO 260 reportó competencia "totalmente sola" el 03 mayo. SAO 51 (2 uds) y Botica 88 (1 ud) participaron puntualmente. Son puntos con menor densidad pero relevantes para cobertura geográfica del festival.</span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══ VENTAS / CHARTS ═══ -->
+<section class="ventas-section" id="ventas">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="eyebrow">Análisis de Ventas</span>
+            <h2 class="sec-h2">Desempeño Comercial<br>Festival + Bevgo</h2>
+            <p class="sec-lead">Distribución de unidades y valor por punto de venta, evolución diaria y ranking de productos del portafolio Festival Vallenato 2026.</p>
+        </div>
+        <div class="chart-grid">
+            <div class="chart-card">
+                <div class="chart-title">Unidades por PDV</div>
+                <div class="chart-sub">Top PDVs campaña Festival + Bevgo · Total acumulado</div>
+                <canvas id="chartPDV" height="260"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title">Evolución Diaria de Ventas</div>
+                <div class="chart-sub">Unidades vendidas por jornada · 29 Abr – 03 May</div>
+                <canvas id="chartDia" height="260"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title">Valor de Venta por PDV (COP)</div>
+                <div class="chart-sub">Distribución del valor total $19.7M por punto de venta</div>
+                <canvas id="chartValor" height="260"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title">Premios Entregados por Tipo</div>
+                <div class="chart-sub">258 premios distribuidos en 11 tipos · Campaña Festival</div>
+                <canvas id="chartPremios" height="260"></canvas>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ GALERÍA ═══ -->
+<section class="gal-section" id="galeria">
+    <div class="gal-inner">
+        <div class="sec-head" style="padding-bottom:20px;">
+            <span class="eyebrow">Registro Fotográfico</span>
+            <h2 class="sec-h2">Galería de Campo</h2>
+            <p class="sec-lead">Evidencia visual de la activación en puntos de venta durante el Festival Vallenato 2026 — Valledupar.</p>
+            <p class="gal-meta" id="galMeta"></p>
+            <div style="margin-top:18px;">
+                <a class="gal-drive-btn" href="https://drive.google.com/drive/folders/124rOYvhFq-kc3_yUjqGFCwuyP1iOBkMC?usp=sharing" target="_blank" rel="noopener">
+                    <i class="fab fa-google-drive"></i> Ver carpeta completa en Drive
+                </a>
+            </div>
+        </div>
+        <div class="gal-hero" id="galHero">
+            <img id="galMain" src="" alt="" style="opacity:0;">
+            <div class="gal-spinner" id="galSpin"></div>
+            <div class="gal-hero-counter" id="galCounter"></div>
+            <div class="gal-hero-caption" id="galCaption"></div>
+            <button class="gal-hero-nav gal-prev" id="galPrev">&#8249;</button>
+            <button class="gal-hero-nav gal-next" id="galNext">&#8250;</button>
+        </div>
+        <div class="gal-strip" id="galStrip"></div>
+    </div>
+</section>
+
+<div class="galb" id="galb">
+    <button class="galb-close" id="galbClose">&times;</button>
+    <button class="galb-nav galb-prev" id="galbPrev">&#8249;</button>
+    <button class="galb-nav galb-next" id="galbNext">&#8250;</button>
+    <img class="galb-img" id="galbImg" src="" alt="" style="opacity:0;">
+    <div class="galb-info">
+        <div class="galb-cap" id="galbCap"></div>
+        <div class="galb-cnt" id="galbCnt"></div>
+        <a class="galb-link" id="galbLink" href="#" target="_blank" rel="noopener">Ver original en Drive</a>
+    </div>
+</div>
+
+
+<!-- Botón acceso galería especial -->
+<div style="background:#0d0d0d; padding:40px 0; text-align:center;">
+    <button id="btnEspecial" onclick="toggleEspecial()" style="display:inline-flex;align-items:center;gap:12px;background:var(--red);color:#fff;border:none;padding:16px 36px;border-radius:10px;font-size:.95rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 6px 24px rgba(198,40,40,.4);transition:background .2s;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        Ver Actividad Especial · Bevgo &amp; Hotel
+        <svg id="btnEspecialChevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transition:transform .3s;"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <p style="color:rgba(255,255,255,.35);font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-top:12px;">18 fotos · 1 video</p>
+</div>
+<div id="secEspecial" style="display:none;">
+<!-- ═══ GALERIA ESPECIAL ═══ -->
+<section class="gal2-section" id="actividad-especial">
+    <div class="gal2-inner">
+        <div class="sec-head" style="padding-top:0;">
+            <span class="eyebrow">Actividad Especial</span>
+            <h2 class="sec-h2">Bevgo &amp; Hotel</h2>
+            <p class="sec-lead">Registro de la actividad especial realizada en Bevgo y el Hotel · Festival Vallenato 2026, Valledupar.</p>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:4px;">
+            <div>
+                <div class="gal2-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                    Incluye video
+                </div>
+                <p class="gal2-meta" id="gal2Meta"></p>
+            </div>
+            <a href="https://drive.google.com/drive/folders/1mTUV_gO6yhkvTFAHYue3vD62h9h1cOjG?usp=sharing" target="_blank" rel="noopener" class="gal2-drive-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                Ver en Google Drive
+            </a>
+        </div>
+        <div class="gal2-hero" id="gal2Hero">
+            <div class="gal2-spinner" id="gal2Spin"></div>
+            <img id="gal2MainImg" src="" alt="" style="opacity:0;">
+            <video id="gal2MainVid" controls preload="none" style="display:none;width:100%;height:100%;object-fit:cover;"></video>
+            <div class="gal2-video-badge" id="gal2VidBadge" style="display:none;">VIDEO</div>
+            <div class="gal2-play-btn" id="gal2PlayBtn">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+            <div class="gal2-hero-counter" id="gal2Counter"></div>
+            <div class="gal2-hero-caption" id="gal2Caption"></div>
+            <button class="gal2-hero-nav gal2-prev" id="gal2Prev">&#8249;</button>
+            <button class="gal2-hero-nav gal2-next" id="gal2Next">&#8250;</button>
+        </div>
+        <div class="gal2-strip" id="gal2Strip"></div>
+    </div>
+</section>
+
+<!-- Lightbox especial -->
+<div class="gal2b" id="gal2b">
+    <button class="gal2b-close" id="gal2bClose">&times;</button>
+    <button class="gal2b-nav gal2b-prev" id="gal2bPrev">&#8249;</button>
+    <button class="gal2b-nav gal2b-next" id="gal2bNext">&#8250;</button>
+    <img class="gal2b-media" id="gal2bImg" src="" alt="" style="opacity:0;transition:opacity .3s;">
+    <div class="gal2b-info">
+        <div class="gal2b-cap" id="gal2bCap"></div>
+        <div class="gal2b-cnt" id="gal2bCnt"></div>
+        <a class="gal2b-link" id="gal2bLink" href="#" target="_blank" rel="noopener">Ver en Drive</a>
+    </div>
+</div>
+
+</div>
+
+
+<!-- ═══ INSIGHTS ═══ -->
+<section class="ins-section" id="insights">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="eyebrow">Inteligencia de Mercado</span>
+            <h2 class="sec-h2">Insights Estratégicos<br>Campaña Festival + Bevgo</h2>
+            <p class="sec-lead">Hallazgos clave de la operación de campo durante el Festival Vallenato 2026 en los canales PDV Festival y Bevgo.</p>
+        </div>
+        <div class="ins-grid">
+            <div class="ins-card">
+                <div class="ins-icon"><i class="fas fa-crown"></i></div>
+                <h4>Bevgo es el Ancla Estratégica del Canal</h4>
+                <p>Con 109 unidades vendidas, Bevgo Valledupar representó el 39% del volumen total de la campaña Festival + Bevgo. Adicionalmente fue el PDV con más premios entregados (138). Su doble rol como punto de venta especializado y espacio de activación lo posiciona como el nodo central de la operación.</p>
+                <span class="ins-pct">39%</span>
+                <span class="ins-pct-lab">del volumen total · Bevgo Valledupar</span>
+            </div>
+            <div class="ins-card">
+                <div class="ins-icon"><i class="fas fa-gem"></i></div>
+                <h4>Economía 9006: Alto Valor, Alta Eficiencia</h4>
+                <p>Con solo 37 unidades vendidas, Economía 9006-Novena generó $6.4M — el mayor valor de todo el canal (32% del total). Su ticket promedio de $172K por unidad vs $71K del canal demuestra que este PDV accede a consumidores de mayor poder adquisitivo con clara preferencia por whisky premium.</p>
+                <span class="ins-pct">32%</span>
+                <span class="ins-pct-lab">del valor total · Econ. 9006</span>
+            </div>
+            <div class="ins-card">
+                <div class="ins-icon"><i class="fas fa-wine-glass-alt"></i></div>
+                <h4>Vino Moelia Domina el Canal Festival</h4>
+                <p>El Vino Moelia Rosado fue el producto más solicitado en hoteles, SAOs y supermercados. En Hotel Tativan generó el mayor ticket por evento (hasta $460K por visita). El 56% de los consumidores encuestados en canales Festival declaró consumir vino, con Moelia como marca preferida en degustación.</p>
+                <span class="ins-pct">56%</span>
+                <span class="ins-pct-lab">consumidores Festival declararon vino</span>
+            </div>
+            <div class="ins-card">
+                <div class="ins-icon"><i class="fas fa-calendar-day"></i></div>
+                <h4>Apertura del Festival Concentra la Demanda</h4>
+                <p>El 29 de abril (primer día) registró 70 unidades y $7.2M — el 37% del valor total de la campaña. La demanda de los canales Festival responde intensamente a la apertura del evento. El día 01 mayo fue el de mayor volumen (85 unidades) coincidiendo con el pico del festival.</p>
+                <span class="ins-pct">$7.2M</span>
+                <span class="ins-pct-lab">día 29 abr · 37% del valor total</span>
+            </div>
+            <div class="ins-card">
+                <div class="ins-icon"><i class="fas fa-trophy"></i></div>
+                <h4>Copas y Descorchadores: Los Premios del Festival</h4>
+                <p>Copas shot Costeño (83 uds) y Descorchadores (80 uds) concentraron el 63% de todos los premios entregados. En el contexto del festival, los premios funcionales ligados al consumo (copas, descorchadores) tienen mayor valor percibido que artículos de vestuario, generando mayor conversión por activación.</p>
+                <span class="ins-pct">63%</span>
+                <span class="ins-pct-lab">premios en copas + descorchadores</span>
+            </div>
+            <div class="ins-card">
+                <div class="ins-icon"><i class="fas fa-users"></i></div>
+                <h4>Consumidor Festival: 25–44, Whisky y Old Parr</h4>
+                <p>De las 73 encuestas Voz Consumidor en Festival + Bevgo: el 57% son hombres, rango 25–44 años (58%), con preferencia por whisky (42 encuestados). Old Parr y Buchanans empataron como marca más frecuente (25 c/u). El 61% declara que descuentos los motivarían a recomendar la marca.</p>
+                <span class="ins-pct">73</span>
+                <span class="ins-pct-lab">encuestas · 58% rango 25–44 años</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ RECOMENDACIONES ═══ -->
+<section class="reco-section" id="recomendaciones">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="eyebrow">Plan de Acción</span>
+            <h2 class="sec-h2">Recomendaciones<br>Estratégicas</h2>
+            <p class="sec-lead">Acciones concretas para maximizar el impacto de la campaña Festival + Bevgo en próximas activaciones del Festival Vallenato.</p>
+        </div>
+        <div class="reco-grid">
+            <div class="reco-card">
+                <div class="reco-num">01</div>
+                <h4>Ampliar Cobertura en Olímpica Cortijos desde Día 1</h4>
+                <p>Este PDV registró 14 unidades en una sola jornada (01 mayo), la misma productividad diaria de Bevgo. Si hubiera operado los 5 días, estimamos 60–70 unidades adicionales. Para la próxima edición, incluirlo desde el 29 abril como punto prioritario con promotora senior y stock asegurado de Moelia + Aguardiente Costeño.</p>
+                <span class="reco-tag">Cobertura</span>
+            </div>
+            <div class="reco-card">
+                <div class="reco-num">02</div>
+                <h4>Garantizar Stock de Moelia Rosado en Éxito y SAOs</h4>
+                <p>El quiebre de Moelia Rosado en Éxito Las Flores el 01 mayo limitó la activación en el punto de mayor tráfico del canal supermercados. Se recomienda definir un mínimo de 12 unidades de Moelia Rosado por PDV supermercado por jornada, con revisión de inventario en la mañana y reposición antes del mediodía.</p>
+                <span class="reco-tag">Logística</span>
+            </div>
+            <div class="reco-card">
+                <div class="reco-num">03</div>
+                <h4>Fortalecer Propuesta en Olímpica Sierra Nevada</h4>
+                <p>La competencia está entregando boletas al festival como incentivo de compra — una propuesta de alto valor percibido. Para contrarrestarla, se sugiere incorporar a los kits de premios experiencias del festival (acceso VIP, meet & greet) en los 2–3 PDVs Olímpica. El descorchador solo no compite con una boleta.</p>
+                <span class="reco-tag">Competencia</span>
+            </div>
+            <div class="reco-card">
+                <div class="reco-num">04</div>
+                <h4>Potenciar Hotel Tativan como Canal Premium</h4>
+                <p>Con solo 8 unidades vendidas pero $910K de valor y el mayor ticket del canal, Hotel Tativan es el PDV de mayor rentabilidad unitaria. Para próximas ediciones, ampliar la presencia a 2 promotoras en este canal y negociar un espacio de degustación permanente de Moelia durante el festival. El consumidor de hotel compra más caro y en mayor volumen.</p>
+                <span class="reco-tag">Premium</span>
+            </div>
+            <div class="reco-card">
+                <div class="reco-num">05</div>
+                <h4>Activar Descuentos para Conversión en Voz Consumidor</h4>
+                <p>El 61% de los consumidores encuestados en Festival + Bevgo indicó que descuentos los motivarían a recomendar la marca, siendo el incentivo más solicitado por encima de obsequios y degustación. Proponer mecánicas de descuento por volumen (2x1 en Old Parr 500ml, bundle Costeño + Moelia) durante el fin de semana central del festival.</p>
+                <span class="reco-tag">Consumer Insight</span>
+            </div>
+            <div class="reco-card">
+                <div class="reco-num">06</div>
+                <h4>Centralizar Bevgo como Hub de Activación Bevgo</h4>
+                <p>Bevgo Valledupar concentró el 53% de todos los premios del canal (138/258). Su rol de hub de activación ya es natural — reforzarlo con material POP adicional, experiencias de degustación extendidas y personal de apoyo en los días pico (01 y 29 abril) multiplicaría el impacto. También es el punto de mayor captación de encuestas Voz Consumidor.</p>
+                <span class="reco-tag">Timing &amp; Recursos</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer style="background:#0a0a0a; padding:28px 24px; text-align:center; border-top:2px solid #C62828;">
+    <p style="color:rgba(255,255,255,0.5); font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin:0; line-height:1.7;">
+        Campa&ntilde;a Festival + Bevgo &nbsp;&middot;&nbsp; Festival Vallenato 2026 &nbsp;&middot;&nbsp; Valledupar, Cesar &nbsp;&middot;&nbsp; Confidencial
+    </p>
+</footer>
+
+<script>
+    /* ═══ CHARTS ═══ */
+    const R = '#C62828', RB = '#EF5350', VINO = '#4A0E0E';
+    const font = 'Barlow Condensed';
+
+    // Chart PDV Unidades
+    new Chart(document.getElementById('chartPDV'), {
+        type: 'bar',
+        data: {
+            labels: ['Bevgo Vdup.','Econ.9006','Econ.10132','Olím.Sierra','Makro','Éxito Flores','Olím.Cortijos','Éxito Centro','SAO 251','Hotel Tativan','Olím.Unicentro'],
+            datasets: [{
+                label: 'Unidades',
+                data: [109,37,21,20,19,14,14,13,13,8,5],
+                backgroundColor: [VINO,R,R,RB,RB,RB,RB,RB,'#EF9A9A','#EF9A9A','#EF9A9A'],
+                borderRadius: 8
+            }]
+        },
+        options: { responsive:true, plugins:{ legend:{display:false} }, scales:{ y:{ beginAtZero:true, grid:{color:'rgba(0,0,0,0.05)'} }, x:{ ticks:{font:{family:font,weight:'700',size:10}, maxRotation:30 } } } }
+    });
+
+    // Chart Evolución diaria
+    new Chart(document.getElementById('chartDia'), {
+        type: 'line',
+        data: {
+            labels: ['29 Abr','30 Abr','01 May','02 May','03 May'],
+            datasets: [{
+                label: 'Unidades vendidas',
+                data: [70,50,85,44,28],
+                borderColor: R, backgroundColor: 'rgba(198,40,40,0.12)',
+                tension: 0.4, fill: true, pointBackgroundColor: R,
+                pointRadius: 8, pointHoverRadius: 11, borderWidth: 3
+            }]
+        },
+        options: { responsive:true, plugins:{ legend:{display:false} }, scales:{ y:{ beginAtZero:false, min:20, grid:{color:'rgba(0,0,0,0.05)'} }, x:{ grid:{display:false} } } }
+    });
+
+    // Chart Valor por PDV
+    new Chart(document.getElementById('chartValor'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Econ.9006','Bevgo Vdup.','Econ.10132','Olím.Sierra','Hotel Tativan','SAO 251','Olím.Cortijos','Makro','Éxito Centro','Éxito Flores','Olím.Unicentro'],
+            datasets: [{
+                data: [6380260,4757900,3280200,1081700,910000,611060,569136,553960,523950,511350,300950],
+                backgroundColor: [VINO,R,'#D32F2F',RB,'#F44336','#EF9A9A','#FFCDD2','#FFCDD2','#FFCDD2','#FFCDD2','#FFCDD2'],
+                borderWidth: 3, borderColor: '#F6F0EF'
+            }]
+        },
+        options: { responsive:true, plugins:{ legend:{ position:'right', labels:{ font:{family:font,size:10}, boxWidth:12 } } } }
+    });
+
+    // Chart Premios
+    new Chart(document.getElementById('chartPremios'), {
+        type: 'bar',
+        data: {
+            labels: ['Copas Shot Costeño','Descorchador','Gorra Costeño','Termos','Tula','Copa Shot','Gorra Old Parr','Gorra Smirnoff','Sombrero'],
+            datasets: [{
+                label: 'Cantidad',
+                data: [83,80,47,15,11,7,5,5,2],
+                backgroundColor: [VINO,R,R,RB,RB,'#EF9A9A','#EF9A9A','#EF9A9A','#FFCDD2'],
+                borderRadius: 6
+            }]
+        },
+        options: { indexAxis:'y', responsive:true, plugins:{ legend:{display:false} }, scales:{ x:{ beginAtZero:true, grid:{color:'rgba(0,0,0,0.05)'} }, y:{ ticks:{font:{family:font,size:10,weight:'700'} } } } }
+    });
+
+    /* GALERIA CARRUSEL */
+    var GP = [
+        {"id": "1CF_a-uV2jbID479Sev7VGKqK0onk2UOh", "label": "Éxito Centro"},
+        {"id": "1yh6UOn29HLNAFd8xl04e5uEm9v-BE12I", "label": "Olímpica Sierra Nevada"},
+        {"id": "1uwZJn6pPF_PJaLUUS9ARcG1aarRIt2-T", "label": "Olímpica Unicentro"},
+        {"id": "1XVe5uMuTfAYYbK0MhroQjpfKy0NAPPuj", "label": "Bevgo Valledupar"},
+        {"id": "1gDi731GzNCRDfCja5UMfhNNgKQaDGL7t", "label": "Bevgo Valledupar"},
+        {"id": "1ICZWvzE_tgp664ce6gc6dEF7FLv6WPuQ", "label": "Éxito Las Flores"},
+        {"id": "1nGZAGehkll9EdmBOKohAQQJVJGNmkeJw", "label": "SAO 251"},
+        {"id": "1T2aCgUDAE9iQclri8NgfbwG9a1-NtnoI", "label": "Economía 9006-Novena"},
+        {"id": "1xBNfEnpL1-l0Bc2riRyiIdm6fUTTiLub", "label": "Economía 10132-Cañahuate"},
+        {"id": "1eUSVcFs0IXdWj9eZonbFtuTaOhepeHDH", "label": "Hotel Tativan"},
+        {"id": "1QJvROUcatJaHfpyTWAuHDXxTSPuDcLbh", "label": "SAO 260"},
+        {"id": "1mJFAGT9sBfFvTojlj5xXuVpi1cjnHBoA", "label": "Olímpica Sierra Nevada"},
+        {"id": "1QUiuXuhYJu9XledTCs_xNZT3JuzwPYgA", "label": "Éxito Las Flores"},
+        {"id": "1IaaQADHI73LmOY7GOguDT1K9fDf7ZNYM", "label": "Bevgo Valledupar"},
+        {"id": "1z9taVShB5WXl6LmaR0WmXwECt1e2V39B", "label": "Olímpica Unicentro"},
+        {"id": "1uGQpuBX7j3I7sp7RyHa0HXh49_IwialR", "label": "Bevgo Valledupar"},
+        {"id": "1b9h1YlvDphNPSP_gnjmp580HY_EdfDg8", "label": "Economía 9006-Novena"},
+        {"id": "1ustISRAMnnIhUhpaRpKvwyYbMncrY_F0", "label": "Economía 10132-Cañahuate"},
+        {"id": "1IG3l25IOKAPS_Cv11qL3I9chJfXoQgFc", "label": "SAO 251"},
+        {"id": "16SNejKMKOmbLDLOv3KEzYUNfaJcLyxa5", "label": "Olímpica Unicentro"},
+        {"id": "1VdIB_ojPNkY10ZOfYffidZbSE3rs0O9y", "label": "SAO 251"},
+        {"id": "1YLnaZx2xKzcNlTwT8ICzNwderMC5qKNM", "label": "Bevgo Valledupar"},
+        {"id": "1vMA-mJofPrXdEmXLCgVV8MlUjBrVUkyM", "label": "Éxito Las Flores"},
+        {"id": "1itpWDV9ZcLr_da8O3BOeEQj67xA6FhTf", "label": "Bevgo Valledupar"},
+        {"id": "1YHv75UJ4ighVlgUnYHYfAsfnvM06cVsR", "label": "Olímpica Cortijos"},
+        {"id": "1nRuuFKwrjdgbK9PNN_9KK8GTR4fJQymj", "label": "Economía 9006-Novena"},
+        {"id": "1ZnbEKDMfdeNzbxkM14gOxZ37OjnsBN2g", "label": "Economía 10132-Cañahuate"},
+        {"id": "1hI66cO4AxU6mRqKcq1U3LYT9BkZwwK7V", "label": "Olímpica Sierra Nevada"},
+        {"id": "1wr3zufFR30LX3VIRGO9-Ou3zJoHCPHWK", "label": "Mi Futuro Novalito"},
+        {"id": "1HuBG8G1YRK_C3UixDHxDF_xRNbNybxeT", "label": "Bevgo Valledupar"},
+        {"id": "1Pc4fOD2qZBYABEuzcQI-nKXFrU6ltTF1", "label": "SAO 251"},
+        {"id": "1saN_fU7gfSlXvVGiC53A2WKgxxU-6vlT", "label": "Éxito Las Flores"},
+        {"id": "1AotW4TJciD3Wjf_BURYehRvLo3-Uayrl", "label": "Makro Valledupar"},
+        {"id": "17jfMQT-VCtP_D-9KLvfTPNAmCpLxqh6R", "label": "Economía 9006-Novena"},
+        {"id": "14kbrTbdg6WtdX0hw-Im9dcWAU9S_9Cu0", "label": "Economía 10132-Cañahuate"},
+        {"id": "1gXfOg6lnMs3Ed45FS5YAR6WZs_fb-Nn5", "label": "Olímpica Sierra Nevada"},
+        {"id": "1aYIiyy0KzrU9cCsTyGymJ55kWVt_RNOv", "label": "Olímpica Unicentro"},
+        {"id": "1dn1mKTGzsse-0ICbNBxmaLlDhsqKUaZk", "label": "SAO 251"},
+        {"id": "17CeS7xks2AIHISt-cBT1d3SglraQy9Lt", "label": "Bevgo Valledupar"},
+        {"id": "1PVR2nxoRSnrEOrUr1EHRs1CxFI2UOMaJ", "label": "Éxito Las Flores"},
+        {"id": "12mjKNrt-aYmWd6su0RCqXXjHKQOPsTfm", "label": "Olímpica Unicentro"},
+        {"id": "1VXv3q5LwD5eLy9JKqrCNIcXB7s2eiok-", "label": "Bevgo Valledupar"},
+        {"id": "1xyLU75egWy0U4TPWENlLzETGKzXKp5j4", "label": "Éxito Centro"},
+        {"id": "1FbabWIjPorl5rZX_eAlnzJt7ukPDTfFE", "label": "SAO 260"}
+    ];
+    var GI = 0;
+    var galMain  = document.getElementById("galMain");
+    var galSpin  = document.getElementById("galSpin");
+    var galCap   = document.getElementById("galCaption");
+    var galCnt   = document.getElementById("galCounter");
+    var galStrip = document.getElementById("galStrip");
+    var galMeta  = document.getElementById("galMeta");
+    if(galMeta) galMeta.textContent = GP.length + " fotografías";
+    GP.forEach(function(p,i){
+        var t = document.createElement("div");
+        t.className = "gal-thumb" + (i===0?" active":"");
+        t.innerHTML = '<img src="https://drive.google.com/thumbnail?id=' + p.id + '&sz=w200" loading="lazy" alt="' + p.label + '">';
+        t.addEventListener("click",(function(x){return function(){galShow(x);};})(i));
+        galStrip.appendChild(t);
+    });
+    function galShow(i){
+        GI=i; var p=GP[i];
+        galMain.style.opacity="0"; galSpin.style.display="block";
+        galMain.onload=function(){galMain.style.opacity="1";galSpin.style.display="none";};
+        galMain.src="https://drive.google.com/thumbnail?id="+p.id+"&sz=w1200";
+        galCap.textContent=p.label;
+        galCnt.textContent=(i+1)+" / "+GP.length;
+        document.querySelectorAll(".gal-thumb").forEach(function(t,idx){t.classList.toggle("active",idx===i);});
+        var th=galStrip.querySelectorAll(".gal-thumb");
+        if(th[i]) th[i].scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});
+    }
+    galShow(0);
+    document.getElementById("galPrev").addEventListener("click",function(){galShow((GI-1+GP.length)%GP.length);});
+    document.getElementById("galNext").addEventListener("click",function(){galShow((GI+1)%GP.length);});
+    galMain.style.cursor="zoom-in";
+    galMain.addEventListener("click",function(){galbOpen(GI);});
+    var GALB=document.getElementById("galb"),GALBIMG=document.getElementById("galbImg");
+    var GALBCAP=document.getElementById("galbCap"),GALBCNT=document.getElementById("galbCnt"),GALBLINK=document.getElementById("galbLink");
+    var GALBI=0;
+    function galbOpen(i){
+        GALBI=i; var p=GP[i];
+        GALBIMG.style.opacity="0";
+        GALBIMG.onload=function(){GALBIMG.style.opacity="1";};
+        GALBIMG.src="https://drive.google.com/thumbnail?id="+p.id+"&sz=w1600";
+        GALBCAP.textContent=p.label;
+        GALBCNT.textContent=(i+1)+" / "+GP.length;
+        GALBLINK.href="https://drive.google.com/file/d/"+p.id+"/view";
+        GALB.classList.add("open");
+        document.body.style.overflow="hidden";
+    }
+    function galbClose(){GALB.classList.remove("open");document.body.style.overflow="";}
+    document.getElementById("galbClose").addEventListener("click",galbClose);
+    document.getElementById("galbPrev").addEventListener("click",function(){galbOpen((GALBI-1+GP.length)%GP.length);});
+    document.getElementById("galbNext").addEventListener("click",function(){galbOpen((GALBI+1)%GP.length);});
+    GALB.addEventListener("click",function(e){if(e.target===GALB)galbClose();});
+    document.addEventListener("keydown",function(e){
+        if(GALB.classList.contains("open")){
+            if(e.key==="ArrowLeft") galbOpen((GALBI-1+GP.length)%GP.length);
+            if(e.key==="ArrowRight") galbOpen((GALBI+1)%GP.length);
+            if(e.key==="Escape") galbClose(); return;
+        }
+        if(e.key==="ArrowLeft") galShow((GI-1+GP.length)%GP.length);
+        if(e.key==="ArrowRight") galShow((GI+1)%GP.length);
+    });
+
+    /* Scroll spy for pills */
+    const sections = ['resumen','pdv','ventas','galeria','insights'];
+    window.addEventListener('scroll', () => {
+        let cur = '';
+        sections.forEach(id => {
+            const el = document.getElementById(id);
+            if(el && window.scrollY >= el.offsetTop - 120) cur = id;
+        });
+        document.querySelectorAll('.pill').forEach(p => {
+            p.classList.toggle('active', p.getAttribute('href') === '#'+cur);
+        });
+    });
+
+    /* GALERIA ESPECIAL BEVGO/HOTEL */
+    var GM2 = [{"id": "1xrVff9vlJdP7UrE1sM-pyyl011neByDd", "label": "Foto 1", "type": "foto"}, {"id": "1Ms3MJBiClR_tTdrG4CD_cNJT6MfR9BFP", "label": "Foto 2", "type": "foto"}, {"id": "1_9LoCk4wwUj665_pmQuAkUvTlCYhHPPu", "label": "Foto 3", "type": "foto"}, {"id": "17QLKeY8BreCIKQifS1WqqXdFnikINkK8", "label": "Foto 4", "type": "foto"}, {"id": "1e_nbWqYoSXHzisQVK-apXNQ7N7GgSFZB", "label": "Foto 5", "type": "foto"}, {"id": "1qwhgQ4AZrKI5wF3Wz7lJ_SXCID5Z_omU", "label": "Foto 6", "type": "foto"}, {"id": "1CocoDvDr7PuiZuB37ZD1NXn6emZ0OwZU", "label": "Foto 7", "type": "foto"}, {"id": "1Imyjgr4oNL8AW0ZtN-1_jummII3klbMm", "label": "Foto 8", "type": "foto"}, {"id": "1wye-l-DBDqZGLst4lsM72bypnS_oI37y", "label": "Foto 9", "type": "foto"}, {"id": "1zUBf8m7SxP_gXjG-uMzfvdvafKWtEFIX", "label": "Foto 10", "type": "foto"}, {"id": "1icWPpvOniwHA0Z1C73BFWszX3aKMyFrK", "label": "Foto 11", "type": "foto"}, {"id": "1ZnTqXkOUBdzqjC416TlB9V92HW8QUlud", "label": "Foto 12", "type": "foto"}, {"id": "1hmXKMO6NbH-Icc5FHzc1khgeof686lkk", "label": "Foto 13", "type": "foto"}, {"id": "1ONRbPIy5mMinIIjCgANqbWa9nbObMlzR", "label": "Foto 14", "type": "foto"}, {"id": "1Bt7DZbvrwD8vhFsy3IFQXwF17aSEB-Ns", "label": "Foto 15", "type": "foto"}, {"id": "18H0sDQqUbRgzi7fmXggDUjNYLy-haFi_", "label": "Foto 16", "type": "foto"}, {"id": "17IzEmOJbm_7Nutagu6wtVF4qXJ62lmJ9", "label": "Foto 17", "type": "foto"}, {"id": "1fefeokB4Z2_FP5KkItTQb9tTYRfFOa8-", "label": "Foto 18", "type": "foto"}, {"id": "1M4G22aZf0vcKllt_cU0Mr2HPzjrC6ajv", "label": "Video 1", "type": "video"}];
+    var GI2 = 0;
+    var g2Main  = document.getElementById("gal2MainImg");
+    var g2Vid   = document.getElementById("gal2MainVid");
+    var g2Spin  = document.getElementById("gal2Spin");
+    var g2Cap   = document.getElementById("gal2Caption");
+    var g2Cnt   = document.getElementById("gal2Counter");
+    var g2Strip = document.getElementById("gal2Strip");
+    var g2Meta  = document.getElementById("gal2Meta");
+    var g2VBadge= document.getElementById("gal2VidBadge");
+    var g2Play  = document.getElementById("gal2PlayBtn");
+    if(g2Meta){ var nf=18, nv=1; g2Meta.textContent = nf+" fotos · "+nv+" video"; }
+
+    /* Construir miniaturas */
+    GM2.forEach(function(p,i){
+        var t = document.createElement("div");
+        t.className = "gal2-thumb" + (i===0?" active":"");
+        var isVid = p.type === "video";
+        var thumbSrc = isVid
+            ? "https://drive.google.com/thumbnail?id=" + p.id + "&sz=w200"
+            : "https://drive.google.com/thumbnail?id=" + p.id + "&sz=w200";
+        var vidOverlay = isVid ? '<div class="gal2-thumb-vid"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>' : "";
+        t.innerHTML = '<img src="' + thumbSrc + '" alt="' + p.label + '" loading="lazy">' + vidOverlay;
+        t.addEventListener("click",(function(x){return function(){gal2Show(x);};})(i));
+        g2Strip.appendChild(t);
+    });
+
+    function gal2Show(i){
+        GI2 = i;
+        var p = GM2[i];
+        var isVid = p.type === "video";
+        g2Spin.style.display = "block";
+        /* ocultar ambos */
+        g2Main.style.opacity = "0"; g2Main.style.display = "block";
+        g2Vid.style.display = "none"; g2Vid.pause && g2Vid.pause();
+        g2VBadge.style.display = "none";
+        g2Play.style.display = "none";
+        if(isVid){
+            g2Spin.style.display = "none";
+            g2Main.style.display = "none";
+            g2Vid.style.display = "block";
+            g2Vid.src = "https://drive.google.com/file/d/" + p.id + "/preview";
+            g2VBadge.style.display = "block";
+        } else {
+            g2Main.onload = function(){ g2Main.style.opacity="1"; g2Spin.style.display="none"; };
+            g2Main.src = "https://drive.google.com/thumbnail?id=" + p.id + "&sz=w1200";
+        }
+        g2Cap.textContent = p.label;
+        g2Cnt.textContent = (i+1) + " / " + GM2.length;
+        document.querySelectorAll(".gal2-thumb").forEach(function(t,idx){t.classList.toggle("active",idx===i);});
+        var th = g2Strip.querySelectorAll(".gal2-thumb");
+        if(th[i]) th[i].scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});
+    }
+    document.getElementById("gal2Prev").addEventListener("click",function(){gal2Show((GI2-1+GM2.length)%GM2.length);});
+    document.getElementById("gal2Next").addEventListener("click",function(){gal2Show((GI2+1)%GM2.length);});
+    /* click en imagen abre lightbox (solo fotos) */
+    g2Main.style.cursor = "zoom-in";
+    g2Main.addEventListener("click",function(){ if(GM2[GI2].type!=="video") gal2bOpen(GI2); });
+
+    /* Lightbox */
+    var G2B = document.getElementById("gal2b"), G2BIMG = document.getElementById("gal2bImg");
+    var G2BCAP = document.getElementById("gal2bCap"), G2BCNT = document.getElementById("gal2bCnt"), G2BLINK = document.getElementById("gal2bLink");
+    var G2BI = 0;
+    function gal2bOpen(i){
+        G2BI=i; var p=GM2[i];
+        G2BIMG.style.opacity="0";
+        G2BIMG.onload=function(){G2BIMG.style.opacity="1";};
+        G2BIMG.src="https://drive.google.com/thumbnail?id="+p.id+"&sz=w1600";
+        G2BCAP.textContent=p.label;
+        G2BCNT.textContent=(i+1)+" / "+GM2.length;
+        G2BLINK.href="https://drive.google.com/file/d/"+p.id+"/view";
+        G2B.classList.add("open"); document.body.style.overflow="hidden";
+    }
+    function gal2bClose(){G2B.classList.remove("open");document.body.style.overflow="";}
+    document.getElementById("gal2bClose").addEventListener("click",gal2bClose);
+    document.getElementById("gal2bPrev").addEventListener("click",function(){gal2bOpen((G2BI-1+GM2.length)%GM2.length);});
+    document.getElementById("gal2bNext").addEventListener("click",function(){gal2bOpen((G2BI+1)%GM2.length);});
+    G2B.addEventListener("click",function(e){if(e.target===G2B)gal2bClose();});
+    document.addEventListener("keydown",function(e){
+        if(G2B.classList.contains("open")){
+            if(e.key==="ArrowLeft") gal2bOpen((G2BI-1+GM2.length)%GM2.length);
+            if(e.key==="ArrowRight") gal2bOpen((G2BI+1)%GM2.length);
+            if(e.key==="Escape"){gal2bClose();return;}
+        }
+    });
+
+
+    /* Toggle galería especial */
+    var _gal2Init = false;
+    function toggleEspecial(){
+        var sec = document.getElementById("secEspecial");
+        var chev = document.getElementById("btnEspecialChevron");
+        var isOpen = sec.style.display !== "none";
+        sec.style.display = isOpen ? "none" : "block";
+        chev.style.transform = isOpen ? "" : "rotate(180deg)";
+        if(!isOpen){
+            sec.scrollIntoView({behavior:"smooth", block:"start"});
+            if(!_gal2Init){ _gal2Init=true; gal2Show(0); }
+        }
+    }
+
+</script>
+</body>
+</html>
